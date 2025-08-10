@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JABS - Blog</title>
+    <title>JABS - Just About Blood Sugar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Update Google Fonts for Poppins Light and Semi Bold -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -32,7 +33,7 @@
         .container {
             font-family: 'Poppins', Arial, sans-serif;
             font-weight: 300;
-            max-width: 900px;
+            max-width: 800px;
             margin: 2rem auto;
             background: #fff;
             padding: 2rem;
@@ -44,73 +45,6 @@
             color: #2d7dd2;
             font-weight: 600;
             font-family: 'Poppins', Arial, sans-serif;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .blog-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #666;
-        }
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .blog-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .blog-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .blog-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-            line-height: 1.3;
-        }
-        .blog-card h3 a {
-            color: #2d7dd2;
-            text-decoration: none;
-        }
-        .blog-card h3 a:hover {
-            text-decoration: underline;
-        }
-        .blog-meta {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-        .blog-excerpt {
-            color: #333;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-        .blog-read-more {
-            color: #2d7dd2;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        .blog-read-more:hover {
-            text-decoration: underline;
-        }
-        .no-blogs {
-            text-align: center;
-            color: #666;
-            font-style: italic;
-            padding: 3rem 1rem;
         }
         footer {
             text-align: center;
@@ -138,147 +72,189 @@
         .btn:hover {
             background: #1b4f72;
         }
-        .btn-back {
+        .jabs-landing {
+            position: relative;
+            width: 100%; /* Fix overflow issue */
+            height: 350px;
+            background: url('Landing Page Poster stretched.png') center center/cover no-repeat;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .jabs-logo-left,
+        .jabs-logo-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-55%);
+            height: 80px;
+        }
+        .jabs-logo-left {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(300%);
+            height: 80px;
+            margin-left: 2vw;
+        }
+        .jabs-logo-right {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(300%);
+            height: 80px;
+            margin-right: 2vw;
+        }
+        .jabs-landing-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
             margin-bottom: 2rem;
-        }
-        .blog-cta {
-            background: #f0f7ff;
-            padding: 2rem;
-            border-radius: 8px;
             text-align: center;
-            margin-top: 3rem;
-            border: 1px solid #e0e7f0;
         }
-        .blog-cta h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
+        .jabs-logo-inline {
+            height: 320px;
+        }
+        .jabs-title {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 7rem;
+            color: #2d7dd2;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-align: center;
+        }
+        .jabs-subtitle, .jabs-mission {
+            text-align: center;
         }
         @media (max-width: 600px) {
-            .container {
-                max-width: 98vw;
-                padding: 1rem;
-                font-size: 1rem;
-            }
-            header {
-                padding: 1rem 0.5rem;
-            }
-            nav {
-                margin-top: 0.5rem;
-            }
-            nav a {
-                margin: 0 0.5rem;
-                font-size: 1rem;
-                display: inline-block;
-                padding: 0.5rem 0;
-            }
-            img[alt="JABS Logo"] {
-                height: 32px !important;
-                margin-right: 0.5rem !important;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .blog-card {
-                padding: 1rem;
-            }
-            .btn {
-                font-size: 1.4rem;
-                padding: 1rem 2rem;
-                width: 90%;
-                max-width: 300px;
-                text-align: center;
-                margin: 1rem auto;
-                display: block;
-            }
-            footer img {
-                height: 28px !important;
-                margin-bottom: 0.5rem !important;
-            }
-            footer {
-                font-size: 0.9rem;
-                padding: 1rem 0.2rem;
-            }
-        }
+    .container {
+        max-width: 98vw;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    header {
+        padding: 1rem 0.5rem;
+    }
+    nav {
+        margin-top: 0.5rem;
+    }
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+        display: inline-block;
+        padding: 0.5rem 0;
+    }
+    img[alt="JABS Logo"] {
+        height: 32px !important;
+        margin-right: 0.5rem !important;
+    }
+    img[alt="JABS Text Logo Left"], img[alt="JABS Text Logo"] {
+        height: 120px !important;
+        margin: 0 auto 1rem auto !important;
+        display: block;
+    }
+    h1, h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    ul {
+        padding-left: 1.2rem;
+    }
+    .btn {
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        width: 90%;
+        max-width: 300px;
+        text-align: center;
+        margin: 1rem auto;
+        display: block;
+    }
+    footer img {
+        height: 28px !important;
+        margin-bottom: 0.5rem !important;
+    }
+    footer {
+        font-size: 0.9rem;
+        padding: 1rem 0.2rem;
+    }
+    .jabs-landing {
+        height: 260px;
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        left: 50%;
+        right: 50%;
+        transform: translateX(-50%);
+        position: relative;
+    }
+}
     </style>
 </head>
 <body>
     <!-- Consistent header -->
-    <header>
-        <img src="../JABS logo notext.png" alt="JABS Logo" style="height:48px; float:left; margin-right:1rem;">
-        <nav>
-            <a href="../index.html">Home & Booking</a>
-            <a href="../pricing.html">Pricing</a>
-            <a href="../contact.html">Contact Us</a>
-            <a href="../privacy.html">Privacy Policy</a>
-            <a href="../terms.html">Terms & Conditions</a>
-            <a href="../about.html">About the diabetes coach</a>
-            <a href="index.html">Blog</a>
-        </nav>
-    </header>
+<header>
+    <img src="JABS logo notext.png" alt="JABS Logo" style="height:48px; float:left; margin-right:1rem;">
+    <nav>
+        <a href="index.html">Home & Booking</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="blogindex.html">Blog</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="about.html">About the diabetes coach</a>
+    </nav>
+</header>
 
-    <!-- Blog listing content -->
-    <div class="container">
-        <a href="../index.html" class="btn btn-back">&#8592; Back to Home</a>
-        
-        <h1>JABS Blog</h1>
-        <div class="blog-intro">
-            <p>Insights, tips, and real experiences from living with diabetes. Learn practical strategies for better blood sugar management and living well with diabetes.</p>
-        </div>
+<!-- Page content goes here -->
+<div class="jabs-landing"></div>
 
-        <div class="blog-grid">
-            <!-- Blog Post 1 - Example template -->
-            <div class="blog-card">
-                <h3><a href="firstblog.html">Why 'Perfect Sugars' is a Losing Battle From the Very Start</a></h3>
-                <div class="blog-meta">Published on January 23, 2025 | By Johnny Bailey</div>
-                <div class="blog-excerpt">
-                    Reflecting on my diabetes journey, there are so many things I wish someone had told me when I was first diagnosed. From understanding the real impact of different foods to learning how to manage the emotional side of diabetes...
-                </div>
-                <a href="firstblog.html" class="blog-read-more">Read more →</a>
-            </div>
-
-        <!-- Blog posts grid -->
-        <div class="blog-grid">
-            <!-- Blog Post 1 - Example template -->
-            <div class="blog-card">
-                <h3><a href="firstblog.html">Things I Wish I Knew As A Newly Diagnosed Diabetic... In Hindsight</a></h3>
-                <div class="blog-meta">Published on January 23, 2025 | By Johnny Bailey</div>
-                <div class="blog-excerpt">
-                    Reflecting on my diabetes journey, there are so many things I wish someone had told me when I was first diagnosed. From understanding the real impact of different foods to learning how to manage the emotional side of diabetes...
-                </div>
-                <a href="firstblog.html" class="blog-read-more">Read more →</a>
-            </div>
-
-            <!-- Add more blog cards here as you create new posts -->
-            <!-- 
-            <div class="blog-card">
-                <h3><a href="your-second-blog.html">Your Second Blog Post Title</a></h3>
-                <div class="blog-meta">Published on [DATE] | By Johnny Bailey</div>
-                <div class="blog-excerpt">
-                    Brief excerpt of your blog post content to give readers a preview...
-                </div>
-                <a href="your-second-blog.html" class="blog-read-more">Read more →</a>
-            </div>
-            -->
-        </div>
-
-        <!-- Call to action section -->
-        <div class="blog-cta">
-            <h3>Want Personalized Diabetes Support?</h3>
-            <p>
-                If you're finding value in these blog posts and want one-on-one guidance tailored to your specific diabetes management needs, I'm here to help. Book a free consultation to get started.
-            </p>
-            <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2Qn16kGz0kSQ7BFJ_R7FHkbvXNXuu25Mmg7KV-XTRcxUNUJPRUM5M00zTkQ3VVhTMDU3UzI3SldHTy4u" target="_blank">Book for Free Now</a>
-        </div>
+<div class="container">
+    <img src="JABS logo copy (2).png" alt="JABS Text Logo Left" style="height:320px; display:block; margin:0 auto 2rem auto;">
+    <div style="text-align:center;">
+        <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2Qn16kGz0kSQ7BFJ_R7FHkbvXNXuu25Mmg7KV-XTRcxUNUJPRUM5M00zTkQ3VVhTMDU3UzI3SldHTy4u" target="_blank" style="margin-bottom:2rem;display:inline-block;">Book for Free Now</a>
     </div>
+    <h2>Welcome to JABS</h2>
+    <p>
+        JABS (Just About Blood Sugar) provides personalised support, education, and guidance to help you manage your blood sugars and live well with diabetes.
+    </p>
+    <p>
+        <span style="font-weight:700; font-size:1.15em; color:#000;">JABS does not offer any medical or prescriptive advice.</span>
+        Under UK legislation, this advice can only be provided by a qualified healthcare professional. JABS is an educational service aimed at empowering individuals with knowledge and skills to manage their diabetes effectively.
+    </p>
+    <h3>Our Services</h3>
+    <ul>
+        <li>One-on-one diabetes coaching sessions, virtually or in person</li>
+        <li>Education on blood sugar management</li>
+        <li>Support for lifestyle changes</li>
+        <li>Real insight from a diabetic with a sustained HbA1c of 5.1%</li>
+    </ul>
+</div>
 
-    <!-- Consistent footer -->
-    <footer>
-        <img src="../JABS logo text.png" alt="JABS Text Logo" style="height:40px; display:block; margin:0 auto 1rem auto;">
-        &copy; 2025 JABS - Just About Blood Sugar. All rights reserved.
-    </footer>
-</body>
+<div class="container" id="about">
+    <h2>About</h2>
+    <p>Here at JABS, I believe in education above all else. Afterall, how can you be expected to achieve great sugars if you are unaware of the many influences on your blood sugars - from the 5 blood-glucose increasing hormones to the interactions of different food molecules on your digestive system and endocrine system? Yes, it's complicated, but that's what I do best. 
+    <p>Led by Johnny Bailey, a type one diabetic of over 5 years with a sustained HbA1c of less than 5.6% throughout this timespan, JABS coaching is formulated from the experiences of real diabetics. Gone are the days where you are left in the dark by your diabetes teams, JABS is here to help and here to guide diabetics through the mostly unknown surprises of living with diabetes.</p>
+    <p>Johnny has a passion for helping others and has been involved in diabetes education for several years. He understands the challenges of living with diabetes and is dedicated to providing the support you need.</p>
+    <p>Whether you are newly diagnosed or have been living with diabetes for years, JABS is here to help you navigate your journey with confidence and knowledge.</p> 
+</div>
+
+<div class="container" id="booking">
+    <h2>Book a free consultation</h2>
+    <p>
+        Ready to take the next step or looking to find out more? Fill out our secure Form and JABS will be in touch. 
+    </p>
+    <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2Qn16kGz0kSQ7BFJ_R7FHkbvXNXuu25Mmg7KV-XTRcxUNUJPRUM5M00zTkQ3VVhTMDU3UzI3SldHTy4u" target="_blank">Book for Free Now</a>
+</div>
+</div>    <!-- Consistent footer -->
+<footer>
+    <img src="JABS logo text.png" alt="JABS Text Logo" style="height:40px; display:block; margin:0 auto 1rem auto;">
+    &copy; 2025 JABS - Just About Blood Sugar. All rights reserved.
+</footer>
 </html>
