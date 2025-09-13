@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test - Simple</title>
+    <style>
+        body { margin: 20px; font-family: Arial; }
+        img { border: 2px solid red; margin: 10px 0; max-width: 300px; }
+        .working { border-color: green; }
+        .broken { border-color: red; }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <h2>WORKING Images (from secondblog):</h2>
+    <p>readingbook.jpg:</p>
+    <img src="readingbook.jpg" alt="Reading book" class="working">
+    
+    <p>pointingfanta.jpg:</p>
+    <img src="pointingfanta.jpg" alt="Pointing fanta" class="working">
+    
+    <h2>NOT WORKING Images (from firstblog):</h2>
+    <p>injectionb1.jpg:</p>
+    <img src="injectionb1.jpg" alt="Injection" class="broken">
+    
+    <p>popcornb1.jpg:</p>
+    <img src="popcornb1.jpg" alt="Popcorn" class="broken">
+    
+    <p>cheesecakeb1.jpg:</p>
+    <img src="cheesecakeb1.jpg" alt="Cheesecake" class="broken">
+    
+    <h2>NOT WORKING Images (from fourthblog):</h2>
+    <p>steak.jpg:</p>
+    <img src="steak.jpg" alt="Steak" class="broken">
+    
+    <script>
+        document.querySelectorAll('img').forEach((img, i) => {
+            img.onload = () => {
+                console.log(`✅ Image ${i + 1} loaded: ${img.src}`);
+                img.style.borderColor = 'green';
+            };
+            img.onerror = () => {
+                console.log(`❌ Image ${i + 1} failed: ${img.src}`);
+                img.style.borderColor = 'red';
+                img.style.backgroundColor = '#ffeeee';
+            };
+        });
+    </script>
+</body>
+</html>
