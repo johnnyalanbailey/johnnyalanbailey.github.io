@@ -2,52 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JABS - Things I Wish I Knew As A Newly Diagnosed Diabetic... In Hindsight</title>
+    <title>JABS - How I Discovered the Secret To Controlled Diabetes Management...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
             font-size: 1.1rem;
             margin: 0;
-            background: #f8f8f8;
+            background: linear-gradient(135deg, #2d7dd2 0%, #4bb3fd 60%, #e3f0ff 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animated-content {
+            animation: fadeInUp 0.8s ease-out;
         }
         header {
             background: #2d7dd2;
             color: #fff;
-            padding: 1.5rem 1rem;
+            padding: 1rem 1rem;
         }
         nav {
             margin-top: 1rem;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
         }
         nav a {
             color: #fff;
-            margin: 0 1.5rem;
+            margin: 0 0.7rem;
             text-decoration: none;
             font-weight: 600;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
             font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a:hover {
+            background: #fff;
+            color: #2d7dd2;
         }
         .container {
-            font-family: 'Poppins', Arial, sans-serif;
-            font-weight: 300;
-            max-width: 800px;
+            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
+            font-weight: 400;
+            max-width: 900px;
             margin: 2rem auto;
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            background: rgba(255,255,255,0.98);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(45,125,210,0.12);
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.7;
+            backdrop-filter: blur(10px);
         }
         h1, h2, h3 {
             color: #2d7dd2;
-            font-weight: 600;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 700;
+            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
             text-align: center;
         }
@@ -106,18 +136,88 @@
         }
         .btn {
             display: inline-block;
-            background: #2d7dd2;
+            background: linear-gradient(90deg, #2d7dd2 80%, #4bb3fd 100%);
             color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
+            padding: 0;
+            border-radius: 8px;
             text-decoration: none;
             margin-top: 1rem;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(45,125,210,0.10);
+            border: none;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            min-width: 160px;
         }
         .btn:hover {
-            background: #1b4f72;
+            background: #fff;
+            color: #2d7dd2;
+            box-shadow: 0 4px 16px rgba(45,125,210,0.18);
+            transform: translateY(-3px) scale(1.02);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            vertical-align: baseline;
+        }
+        .dropbtn {
+            cursor: pointer;
+            color: #fff;
+            margin: 0 0.7rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+            display: inline-block;
+        }
+        .dropbtn:hover {
+            background: #fff;
+            color: #2d7dd2;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(45,125,210,0.12);
+            z-index: 1;
+            right: 0;
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .dropdown-content a {
+            color: #2d7dd2 !important;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 1rem;
+            border-radius: 0;
+            margin: 0 0 0.1rem 0;
+            line-height: 1.3;
+        }
+        .dropdown-content a:hover {
+            background-color: #e3f0ff;
+            color: #2d7dd2 !important;
+            transform: translateX(3px);
+        }
+        .dropdown.show .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
         .btn-back {
             margin-bottom: 1rem;
@@ -136,43 +236,57 @@
         }
         @media (max-width: 600px) {
             .container {
-                max-width: 98vw;
-                padding: 1rem;
+                max-width: 85vw;
+                padding: 1.5rem 1rem;
                 font-size: 1rem;
+                border-radius: 16px;
+                box-shadow: 0 2px 8px rgba(45,125,210,0.10);
+                background: rgba(255,255,255,0.98);
             }
             header {
                 padding: 1rem 0.5rem;
             }
             nav {
-                margin-top: 0.5rem;
+                flex-direction: row;
+                gap: 1.2rem;
+                justify-content: center;
             }
-            nav a {
-                margin: 0 0.5rem;
-                font-size: 1rem;
+            nav a, .dropdown {
+                margin: 0 0.7rem;
+                font-size: 1.08rem;
+                padding: 0.8rem 0.6rem;
+                width: auto;
+                max-width: none;
+                text-align: center;
                 display: inline-block;
-                padding: 0.5rem 0;
+                vertical-align: top;
+                min-height: 44px;
+                min-width: 44px;
             }
             img[alt="JABS Logo"] {
                 height: 32px !important;
                 margin-right: 0.5rem !important;
             }
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
             h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             .btn {
-                font-size: 1.4rem;
-                padding: 1rem 2rem;
+                font-size: 1.2rem;
+                padding: 0;
                 width: 90%;
                 max-width: 300px;
                 text-align: center;
-                margin: 1rem auto;
-                display: block;
+                margin: 1.5rem auto;
+                display: flex;
+                height: 60px;
+                align-items: center;
+                justify-content: center;
             }
             footer img {
                 height: 28px !important;
@@ -181,15 +295,6 @@
             footer {
                 font-size: 0.9rem;
                 padding: 1rem 0.2rem;
-            }
-            /* Mobile-specific styling for the image/text layout */
-            div[style*="display: flex"] {
-                flex-direction: column !important;
-            }
-            div[style*="display: flex"] img {
-                width: 150px !important;
-                height: 150px !important;
-                margin: 0 auto 1rem auto !important;
             }
         }
     </style>
@@ -200,18 +305,22 @@
         <img src="../JABS logo notext.png" alt="JABS Logo" style="height:48px; float:left; margin-right:1rem;">
         <nav>
             <a href="../index.html">Home & Booking</a>
-            <a href="../pricing.html">Pricing</a>
+            <a href="../pricing.html">Pricing & Services</a>
             <a href="../contact.html">Contact Us</a>
             <a href="blogindex.html">Blog</a>
-            <a href="../privacy.html">Privacy Policy</a>
-            <a href="../terms.html">Terms & Conditions</a>
-            <a href="../about.html">About the diabetes coach</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" onclick="toggleDropdown(event)">More &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms & Conditions</a>
+                    <a href="../about.html">About the diabetes coach</a>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <!-- Blog content -->
-    <div class="container">
-        <a href="index.html" class="btn" style="margin-bottom:1rem;display:inline-block;">&#8592; Back to Home</a>
+    <div class="container animated-content">
+        <a href="../index.html" class="btn btn-back">&#8592; Back to Home</a>
         
         <!-- REPLACE: Blog title -->
         <h1>How I Discovered the Secret To Controlled Diabetes Management...</h1>
@@ -241,7 +350,7 @@
             </p>
             <h3>How I Changed My Diet</h3>
             <p>
-                After all this new dietary insight, I decided to follow the NHS guideance on ‘balanced’ eating to the decimal point. It didn’t work. At this point, I was studying monomers and polymers (the building blocks of food) in A-level Biology, and I quickly realised that all carbohydrates listed on the back of food labels in the UK, are broken down into pure sugar – and yes that goes for ‘wholemeal’ alternatives. Learning this, I quickly researched how I could base my diet on the other food groups available which had a lesser impact on my sugars – fat and protein. And so began my vast food discovery journey. It was a journey in which all roads led to Rome. All roads, all varieties of diets led me to the conclusion that carbohydrates in any guise (aside fiber – to get technical), would impact my sugars greatly regardless of carb-counting and insulin adjustments. 
+                After all this new dietary insight, I decided to follow the NHS guidance on ‘balanced’ eating to the decimal point. It didn’t work. At this point, I was studying monomers and polymers (the building blocks of food) in A-level Biology, and I quickly realised that all carbohydrates listed on the back of food labels in the UK, are broken down into pure sugar – and yes that goes for ‘wholemeal’ alternatives. Learning this, I quickly researched how I could base my diet on the other food groups available which had a lesser impact on my sugars – fat and protein. And so began my vast food discovery journey. It was a journey in which all roads led to Rome. All roads, all varieties of diets led me to the conclusion that carbohydrates in any guise (aside fiber – to get technical), would impact my sugars greatly regardless of carb-counting and insulin adjustments. 
             </p>
             
             <ul>
@@ -253,14 +362,7 @@
             
             <h2>But I Didn't Give Up Carbs Completely...</h2>
             <p>
-                                Speaking to my team about this, I was met with the same poor advice I was given initially: as long as I'm eating a 'balanced diet' I would be fine. Anyone who has diabetes will know it simply isn't as straightforward as that statement suggests. I learned early on that if diet has such a big impact on my glucose profiles, why not focus on adjusting my diet in order to manage my sugars more tightly? It was a thought that led to a plan, that led to learning, that led to a result. I now have great sugars, without compromise in taste. I enjoy popcorn when I go to the cinema, I enjoy an occasional snack night watching movies at home – and if you've seen my TikTok page, you may know I enjoy the local 'Ice Cream Farm' regularly in the summer, without comprimising my sugars.
-            </p>
-            
-            <!-- Ice cream image -->
-            <img src="icecreamb1.jpg" alt="Enjoying ice cream with controlled diabetes management" style="width: 100%; height: 500px; object-fit: cover; border-radius: 8px; margin: 1.5rem 0;">
-            
-            <p>
-                How? I stripped my diet back to things I knew would not affect my sugars, and then learned how to properly dose for single food items which would – I didn't have to worry about how my breakfast was affecting my midday sugars during a trip to the Ice Cream Farm, or how my dinner I'd eaten hours before a cinema visit might still be affecting my sugars whilst eating popcorn. I knew any notable changes in my sugars was from the single carby/sugary (they're the synonyms in reality) food I had just eaten, allowing my insulin dosing to be specific to that effect. 
+                Speaking to my team about this, I was met with the same poor advice I was given initially: as long as I’m eating a ‘balanced diet’ I would be fine. Anyone who has diabetes will know it simply isn’t as straightforward as that statement suggests. I learned early on that if diet has such a big impact on my glucose profiles, why not focus on adjusting my diet in order to manage my sugars more tightly? It was a thought that led to a plan, that led to learning, that led to a result. I now have great sugars, without compromise in taste. I enjoy popcorn when I go to the cinema, I enjoy an occasional snack night watching movies at home – and if you’ve seen my TikTok page, you may know I enjoy the local ‘Ice Cream Farm’ regularly in the summer, without compromising my sugars. How? I stripped my diet back to things I knew would not affect my sugars, and then learned how to properly dose for single food items which would – I didn’t have to worry about how my breakfast was affecting my midday sugars during a trip to the Ice Cream Farm, or how my dinner I’d eaten hours before a cinema visit might still be affecting my sugars whilst eating popcorn. I knew any notable changes in my sugars was from the single carby/sugary (they’re the synonyms in reality) food I had just eaten, allowing my insulin dosing to be specific to that effect. 
             </p>
             
             <blockquote>
@@ -285,7 +387,7 @@
              <!-- Cheesecake image with text overlay -->
             <div style="position: relative; text-align: center; margin: 2rem 0;">
                 <img src="cheesecakeb1.jpg" alt="Enjoying cheesecake with controlled diabetes - strict but sensible approach" style="width: 100%; height: 400px; object-fit: cover; object-position: center 30%; border-radius: 8px;">
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255, 255, 255, 0.9); color: rgb(139, 46, 46); padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1.4rem; font-weight: 300; font-style: italic; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255, 255, 255, 0.9); color: rgb(139, 46, 46); padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1.4rem; font-weight: 600; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
                     My Favourite Dessert Since Diagnosis...
                 </div>
             </div>
@@ -308,5 +410,21 @@
         <img src="../JABS logo text.png" alt="JABS Text Logo" style="height:40px; display:block; margin:0 auto 1rem auto;">
         &copy; 2025 JABS - Just About Blood Sugar. All rights reserved.
     </footer>
+
+    <script>
+function toggleDropdown(event) {
+    event.preventDefault();
+    var dropdown = event.target.closest('.dropdown');
+    dropdown.classList.toggle('show');
+    
+    // Close dropdown if clicking outside
+    document.addEventListener('click', function handler(e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+            document.removeEventListener('click', handler);
+        }
+    });
+}
+</script>
 </body>
 </html>
