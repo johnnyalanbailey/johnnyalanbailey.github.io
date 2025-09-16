@@ -4,85 +4,136 @@
     <meta charset="UTF-8">
     <title>JABS - Pricing & Services</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Use Nunito for a friendly, professional look -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             font-size: 1.1rem;
             margin: 0;
-            background: linear-gradient(135deg, #2d7dd2 0%, #4bb3fd 60%, #e3f0ff 100%);
-            min-height: 100vh;
-            color: #222;
-            scroll-behavior: smooth;
+            background: #f8f8f8;
+            padding-top: 120px;
         }
         header {
-            background: #2d7dd2;
+            background: rgba(45, 125, 210, 0.7);
             color: #fff;
-            padding: 1rem 1rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-logo {
+            height: 48px;
         }
         nav {
-            margin-top: 1rem;
             text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
+            position: relative;
         }
         nav a {
             color: #fff;
-            margin: 0 0.7rem;
+            margin: 0 1.5rem;
             text-decoration: none;
             font-weight: 600;
-            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
         }
-        nav a:hover {
-            background: #fff;
-            color: #2d7dd2;
+        
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 0 1.5rem;
+        }
+        
+        .dropdown-btn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .dropdown-btn:hover {
+            text-decoration: underline;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 2px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .dropdown-content a {
+            color: #2d7dd2 !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            text-decoration: none;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeIn 0.2s ease-in;
+        }
+        
+        .dropdown-content {
+            transition-delay: 0.1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
         .container {
-            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             font-weight: 300;
             max-width: 800px;
             margin: 2rem auto;
             background: #fff;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(45,125,210,0.08);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
             font-size: 1.1rem;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        .container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(45,125,210,0.12);
-        }
-        .container:nth-child(1) { animation-delay: 0.1s; }
-        .container:nth-child(2) { animation-delay: 0.2s; }
-        .container:nth-child(3) { animation-delay: 0.3s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         h1, h2, h3 {
             color: #2d7dd2;
             font-weight: 600;
-            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
         }
         footer {
             text-align: center;
@@ -97,97 +148,80 @@
         }
         .btn {
             display: inline-block;
-            background: linear-gradient(90deg, #2d7dd2 80%, #4bb3fd 100%);
+            background: #2d7dd2;
             color: #fff;
-            padding: 0;
-            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
             text-decoration: none;
             margin-top: 1rem;
-            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
-            box-shadow: 0 2px 8px rgba(45,125,210,0.10);
-            border: none;
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
-            cursor: pointer;
-            text-align: center;
+        }
+        .btn:hover {
+            background: #1b4f72;
+        }
+        .jabs-landing {
+            position: relative;
+            width: 100%; /* Fix overflow issue */
+            height: 350px;
+            background: url('Landing Page Poster stretched.png') center center/cover no-repeat;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .jabs-logo-left,
+        .jabs-logo-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-55%);
+            height: 80px;
+        }
+        .jabs-logo-left {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(300%);
+            height: 80px;
+            margin-left: 2vw;
+        }
+        .jabs-logo-right {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(300%);
+            height: 80px;
+            margin-right: 2vw;
+        }
+        .jabs-landing-text {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 50px;
-            min-width: 160px;
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
         }
-        .btn:hover {
-            background: #fff;
-            color: #2d7dd2;
-            box-shadow: 0 4px 16px rgba(45,125,210,0.18);
-            transform: translateY(-3px) scale(1.02);
+        .jabs-logo-inline {
+            height: 320px;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            vertical-align: baseline;
-        }
-        .dropbtn {
-            cursor: pointer;
-            color: #fff;
-            margin: 0 0.7rem;
-            text-decoration: none;
+        .jabs-title {
+            font-family: 'Poppins', Arial, sans-serif;
             font-weight: 600;
-            font-family: 'Nunito', 'Poppins', Arial, sans-serif;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-            display: inline-block;
-        }
-        .dropbtn:hover {
-            background: #fff;
+            font-size: 7rem;
             color: #2d7dd2;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-align: center;
         }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(45,125,210,0.12);
-            z-index: 1;
-            right: 0;
-            border-radius: 8px;
-            padding: 0.5rem 0;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .dropdown-content a {
-            color: #2d7dd2 !important;
-            padding: 0.6rem 1.2rem;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-size: 1rem;
-            border-radius: 0;
-            margin: 0 0 0.1rem 0;
-            line-height: 1.3;
-        }
-        .dropdown-content a:hover {
-            background-color: #e3f0ff;
-            color: #2d7dd2 !important;
-            transform: translateX(3px);
-        }
-        .dropdown.show .dropdown-content {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
+        .jabs-subtitle, .jabs-mission {
+            text-align: center;
         }
         .pricing-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 2rem;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(45,125,210,0.08);
         }
         .pricing-table th,
         .pricing-table td {
@@ -196,37 +230,29 @@
             text-align: left;
         }
         .pricing-table thead tr {
-            background: linear-gradient(90deg, #2d7dd2 80%, #4bb3fd 100%);
+            background: #2d7dd2;
             color: #fff;
         }
         @media (max-width: 600px) {
     .container {
-        max-width: 80vw;
-        padding: 0.7rem 0.5rem;
-        font-size: 1.08rem;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(45,125,210,0.10);
-        background: rgba(255,255,255,0.96);
+        max-width: 98vw;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    body {
+        padding-top: 100px;
     }
     header {
         padding: 1rem 0.5rem;
     }
     nav {
-        flex-direction: row;
-        gap: 1.2rem;
-        justify-content: center;
+        margin-top: 0.5rem;
     }
-    nav a, .dropdown {
-        margin: 0 0.7rem;
-        font-size: 1.08rem;
-        padding: 0.8rem 0.6rem;
-        width: auto;
-        max-width: none;
-        text-align: center;
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 1rem;
         display: inline-block;
-        vertical-align: top;
-        min-height: 44px;
-        min-width: 44px;
+        padding: 0.5rem 0;
     }
     img[alt="JABS Logo"] {
         height: 32px !important;
@@ -247,16 +273,8 @@
         padding-left: 1.2rem;
     }
     .btn {
-        font-size: 1.2rem;
-        padding: 0;
-        width: 90%;
-        max-width: 300px;
-        text-align: center;
-        margin: 1.5rem auto;
-        display: flex;
-        height: 60px;
-        align-items: center;
-        justify-content: center;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
     }
     footer img {
         height: 28px !important;
@@ -266,44 +284,39 @@
         font-size: 0.9rem;
         padding: 1rem 0.2rem;
     }
-    .pricing-table {
-        font-size: 0.9rem;
-    }
-    .pricing-table th,
-    .pricing-table td {
-        padding: 0.5rem;
-    }
 }
     </style>
 </head>
 <body>
     <!-- Consistent header -->
 <header>
-    <img src="JABS logo notext.png" alt="JABS Logo" style="height:48px; float:left; margin-right:1rem;">
-    <nav>
-        <a href="index.html">Home & Booking</a>
-        <a href="pricing.html">Pricing & Services</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="blog/blogindex.html">Blog</a>
-        <div class="dropdown">
-            <a href="#" class="dropbtn" onclick="toggleDropdown(event)">More &#9662;</a>
-            <div class="dropdown-content">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
-                <a href="about.html">About the diabetes coach</a>
+    <div class="header-content">
+        <img src="JABS logo notext.png" alt="JABS Logo" class="header-logo">
+        <nav>
+            <a href="index.html">Home & Booking</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">More ▼</button>
+                <div class="dropdown-content">
+                    <a href="pricing.html">Pricing & Services</a>
+                    <a href="blog/blogindex.html">Blog</a>
+                    <a href="about.html">About the diabetes coach</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
             </div>
-        </div>
-    </nav>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
 </header>
 
 <!-- Page content goes here -->
 <div class="container">
-    <a href="index.html" class="btn" style="margin-bottom:2rem;margin-left:auto;margin-right:auto;">&#8592; Back to Home</a>
+    <a href="index.html" class="btn" style="margin-bottom:1rem;display:inline-block;">&#8592; Back to Home</a>
     <h1>Pricing</h1>
     <p>Transparent pricing for all our diabetes coaching and support services.</p>
     <table class="pricing-table" style="width:100%; border-collapse:collapse; margin-bottom:2rem;">
         <thead>
-            <tr style="background:linear-gradient(90deg, #2d7dd2 80%, #4bb3fd 100%); color:#fff;">
+            <tr style="background:#2d7dd2; color:#fff;">
                 <th style="padding:0.75rem; border:1px solid #e0e0e0;">Service</th>
                 <th style="padding:0.75rem; border:1px solid #e0e0e0;">Price</th>
                 <th style="padding:0.75rem; border:1px solid #e0e0e0;">Details</th>
@@ -334,7 +347,7 @@
             Your first session is a free 15-minute introduction and assessment. We’ll discuss your current diabetes management, goals, and how JABS can support you. This is a chance to ask questions and see if coaching is right for you.
             JABS is all about understanding your needs and providing personalised support. Thus, the initial consultation is free to ensure you feel comfortable before committing to any paid services.
         </p>
-        <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2Qn16kGz0kSQ7BFJ_R7FHkbvXNXuu25Mmg7KV-XTRcxUNUJPRUM5M00zTkQ3VVhTMDU3UzI3SldHTy4u" target="_blank" style="margin-left:auto;margin-right:auto;">Book for Free Now</a>
+        <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2Qn16kGz0kSQ7BFJ_R7FHkbvXNXuu25Mmg7KV-XTRcxUNUJPRUM5M00zTkQ3VVhTMDU3UzI3SldHTy4u" target="_blank">Book for Free Now</a>
     </div>
     <div style="margin-top:2rem;">
         <h2>Coaching Sessions</h2>
@@ -342,7 +355,7 @@
             One-on-one coaching sessions last 45 minutes and are tailored to your particular needs. We’ll cover blood sugar management, nutrition, lifestyle changes, and practical strategies. Sessions can be held virtually or in-person depending on your location.
             JABS is based in Cheshire, UK, and can meet in person within a reasonable distance. Virtual sessions are available for those further away or who prefer online support. 
         </p>
-        <a class="btn" href="https://book.stripe.com/3cI00c0bp6FhdSzepP1wY02" target="_blank" style="margin-left:auto;margin-right:auto;">Book Here - £24.99 inc VAT</a>
+        <a class="btn" href="https://book.stripe.com/3cI00c0bp6FhdSzepP1wY02" target="_blank">Book Here - £24.99 inc VAT</a>
     </div>
     <div style="margin-top:2rem;">
         <h2>Live Support</h2>
@@ -350,7 +363,7 @@
             The monthly support package gives you access to live support via WhatsApp between coaching sessions. Get answers to your questions, advice on daily challenges, and ongoing encouragement whenever you need it.
             This service is designed to provide continuous support and ensure you never feel alone in your diabetes management journey. Whether you have a quick question or need reassurance, JABS is here for you and can offer non-medical suggestions on how best to manage challenges you may face with diabetes.
         </p>
-        <a class="btn" href="https://buy.stripe.com/28EdR2cYbe7Jg0H4Pf1wY00" target="_blank" style="margin-left:auto;margin-right:auto;">Purchase Here - £19.99 inc VAT</a>
+        <a class="btn" href="https://buy.stripe.com/28EdR2cYbe7Jg0H4Pf1wY00" target="_blank">Purchase Here - £19.99 inc VAT</a>
     </div>
     <div style="margin-top:2rem;">
         <h2>Stripe Account Login</h2>
@@ -358,26 +371,9 @@
             Use this link to access your purchases, receipts and manage your subscription without needing to contact JABS directly.
             This is particularly useful for managing your monthly support package and reviewing past transactions.
         </p>
-        <a class="btn" href="https://billing.stripe.com/p/login/28EdR2cYbe7Jg0H4Pf1wY00" target="_blank" style="margin-left:auto;margin-right:auto;">Stripe Account</a>
+        <a class="btn" href="https://billing.stripe.com/p/login/28EdR2cYbe7Jg0H4Pf1wY00" target="_blank">Stripe Account</a>
     </div>
 </div>
-
-<script>
-function toggleDropdown(event) {
-    event.preventDefault();
-    var dropdown = event.target.closest('.dropdown');
-    dropdown.classList.toggle('show');
-    
-    // Close dropdown if clicking outside
-    document.addEventListener('click', function handler(e) {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('show');
-            document.removeEventListener('click', handler);
-        }
-    });
-}
-</script>
-
 <!-- Consistent footer -->
 <footer>
     <img src="JABS logo text.png" alt="JABS Text Logo" style="height:40px; display:block; margin:0 auto 1rem auto;">
