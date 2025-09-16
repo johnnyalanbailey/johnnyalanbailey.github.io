@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JABS - How I Discovered the Secret To Controlled Diabetes Management...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+            margin: 0;
+            background: #f8f8f8;
+            padding-top: 120px;
+        }
+        header {
+            background: rgba(45, 125, 210, 0.7);
+            color: #fff;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-logo {
+            height: 48px;
+        }
+        nav {
+            text-align: center;
+            position: relative;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 0 1.5rem;
+        }
+        
+        .dropdown-btn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .dropdown-btn:hover {
+            text-decoration: underline;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 2px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .dropdown-content a {
+            color: #2d7dd2 !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            text-decoration: none;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeIn 0.2s ease-in;
+        }
+        
+        .dropdown-content {
+            transition-delay: 0.1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .container {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2d7dd2;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .blog-meta {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .blog-content p {
+            margin-bottom: 1.2rem;
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .blog-content blockquote {
+            background: #f0f7ff;
+            border-left: 4px solid #2d7dd2;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        .blog-content ul, .blog-content ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #fff;
+            color: #2d7dd2;
+        }
+        footer img {
+            height: 40px;
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+        .btn {
+            display: inline-block;
+            background: #2d7dd2;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .btn:hover {
+            background: #1b4f72;
+        }
+        .btn-back {
+            margin-bottom: 1rem;
+        }
+        .blog-cta {
+            background: #f0f7ff;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+            border: 1px solid #e0e7f0;
+        }
+        .blog-cta h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 600px) {
+            .container {
+                max-width: 98vw;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            header {
+                padding: 1rem 0.5rem;
+            }
+            nav {
+                margin-top: 0.5rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 1rem;
+                display: inline-block;
+                padding: 0.5rem 0;
+            }
+            img[alt="JABS Logo"] {
+                height: 32px !important;
+                margin-right: 0.5rem !important;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .btn {
+                font-size: 1.4rem;
+                padding: 1rem 2rem;
+                width: 90%;
+                max-width: 300px;
+                text-align: center;
+                margin: 1rem auto;
+                display: block;
+            }
+            footer img {
+                height: 28px !important;
+                margin-bottom: 0.5rem !important;
+            }
+            footer {
+                font-size: 0.9rem;
+                padding: 1rem 0.2rem;
+            }
+            /* Mobile-specific styling for the image/text layout */
+            div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+            div[style*="display: flex"] img {
+                width: 150px !important;
+                height: 150px !important;
+                margin: 0 auto 1rem auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Consistent header -->
+<header>
+    <div class="header-content">
+        <img src="../JABS logo notext.png" alt="JABS Logo" class="header-logo">
+        <nav>
+            <a href="../index.html">Home & Booking</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">More ▼</button>
+                <div class="dropdown-content">
+                    <a href="../pricing.html">Pricing & Services</a>
+                    <a href="blogindex.html">Blog</a>
+                    <a href="../about.html">About the diabetes coach</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+            <a href="../contact.html">Contact Us</a>
+        </nav>
+    </div>
+</header>    <!-- Blog content -->
+    <div class="container">
+        <a href="../index.html" class="btn" style="margin-bottom:1rem;display:inline-block;">&#8592; Back to Home</a>
+        
+        <!-- REPLACE: Blog title -->
+        <h1>How I Discovered the Secret To Controlled Diabetes Management...</h1>
+        
+        <!-- REPLACE: Blog metadata -->
+        <div class="blog-meta">
+            Published on 23/07/2025 | By Johnny Bailey
+        </div>
+        
+        <!-- Hero image -->
+        <img src="injectionb1.JPG" alt="Diabetes injection representing diabetes management journey" style="width: 100%; height: 900px; object-fit: cover; border-radius: 8px; margin: 2rem 0;">
+        
+        <!-- REPLACE: Blog content starts here -->
+        <div class="blog-content">
+            <p>
+                I have been diagosed since 2021, approaching nearly 4 years now. I have researched so much into diet and its impact in blood sugar management, and I have learned so much about how to manage my diabetes. I wish I had known these things when I was first diagnosed, as it would have made my journey so much easier.
+            </p>
+            
+            <h2>What I Was Told (By a 'Dietician')</h2>
+            <p>
+                One of the first and most important changes any diabetic, whether newly diagnosed or not, can make is to their diet. In hospital, I was told by a dietician that pizza was ok for me to eat because it had cheese on it and cheese was a low-carb food which was recommended as a snack. At the time, the irony of eating one of the carbiest and trickiest (to dose for) foods because it had an ingredient that was low-carb was lost on me.
+            </p>
+            <p>
+                That said, I wasn’t so naïve that I went and ate pizza upon leaving the hospital; I did choose to avoid it. I then decided to have a PizzaHut before watching a film in the cinema a few months in to my new diagnosis. I dosed my insulin, injected and my sugars stayed above 15mmol/L for twelve hours, and I injected easily a half a dozen insulin shots. Eventually my sugars came down (they crashed) and I came to the sudden realisation that my dietician was wrong to advise me that pizza was ‘ok’. How can a professional responsible for educating diabetics about their diet be so wrong about food suggestions? 
+            </p>
+            <p> Admittedly, I had another dietician who was a type one herself, so was a bit more grounded about the dietary advice the NHS recommends, and could see more than just percentages and calories, tell me that I should avoid nightly scones as a bed time treat as they were causing my bloods to skyrocket in the night. This advice made me realise that although diabetics can eat anything, it doesn’t mean they should. Thus,  if omitting certain risky foods from my diet could improve my sugars by a meaningful amount, then so be the culling of my dietary choices that was to come.   
+            </p>
+            <h3>How I Changed My Diet</h3>
+            <p>
+                After all this new dietary insight, I decided to follow the NHS guidance on ‘balanced’ eating to the decimal point. It didn’t work. At this point, I was studying monomers and polymers (the building blocks of food) in A-level Biology, and I quickly realised that all carbohydrates listed on the back of food labels in the UK, are broken down into pure sugar – and yes that goes for ‘wholemeal’ alternatives. Learning this, I quickly researched how I could base my diet on the other food groups available which had a lesser impact on my sugars – fat and protein. And so began my vast food discovery journey. It was a journey in which all roads led to Rome. All roads, all varieties of diets led me to the conclusion that carbohydrates in any guise (aside fiber – to get technical), would impact my sugars greatly regardless of carb-counting and insulin adjustments. 
+            </p>
+            
+            <ul>
+                <li>Fast/White Carbs = Rapid spike, quick fall.</li>
+                <li>Slow/Whole Carbs = Steady spike, long, long, long fall.</li>
+                <li>Fat = no impact, slow digestions (leading to a spike later on).</li>
+                <li>Protein = Moderate impact, converted to glucose in excess.</li>
+            </ul>
+            
+            <h2>But I Didn't Give Up Carbs Completely...</h2>
+            <p>
+                Speaking to my team about this, I was met with the same poor advice I was given initially: as long as I’m eating a ‘balanced diet’ I would be fine. Anyone who has diabetes will know it simply isn’t as straightforward as that statement suggests. I learned early on that if diet has such a big impact on my glucose profiles, why not focus on adjusting my diet in order to manage my sugars more tightly? It was a thought that led to a plan, that led to learning, that led to a result. I now have great sugars, without compromise in taste. I enjoy popcorn when I go to the cinema, I enjoy an occasional snack night watching movies at home – and if you’ve seen my TikTok page, you may know I enjoy the local ‘Ice Cream Farm’ regularly in the summer, without compromising my sugars. How? I stripped my diet back to things I knew would not affect my sugars, and then learned how to properly dose for single food items which would – I didn’t have to worry about how my breakfast was affecting my midday sugars during a trip to the Ice Cream Farm, or how my dinner I’d eaten hours before a cinema visit might still be affecting my sugars whilst eating popcorn. I knew any notable changes in my sugars was from the single carby/sugary (they’re the synonyms in reality) food I had just eaten, allowing my insulin dosing to be specific to that effect. 
+            </p>
+            
+            <blockquote>
+                "Let food be thy medicine, and medicine be thy food," Hippocrates once said.
+            </blockquote>
+            
+            <!-- Popcorn image - square and positioned to the side -->
+            <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                <img src="popcornb1.jpg" alt="Enjoying popcorn at the cinema with controlled diabetes" style="width: 200px; height: 200px; object-fit: cover; border-radius: 8px; flex-shrink: 0;">
+                
+                <div style="flex: 1; min-width: 300px;">
+                    <p style="margin-top: 0;">
+                        I enjoy popcorn when I go to the cinema, I enjoy an occasional snack night watching movies at home – and if you've seen my TikTok page, you may know I enjoy the local 'Ice Cream Farm' regularly in the summer, without comprimising my sugars. The key was learning to isolate and understand each treat individually.
+                    </p>
+                </div>
+            </div>
+            
+            <p>
+                In summary, try to think of diet as a dart board and the more carbs you eat, the darker the room gets. The dietary advice is no different here in the UK for diabetics, so 300g carbs each day if you’re a man (230g if you’re a woman). At this point, if you’re nearing the guidance, you may as well be blindfolded, or trying to hit bullseye facing the other way. With this much co-stimulus, insulin doses simply won’t be effective, at least in my experience. The solution isn’t to cut out carbs completely, the solution is to be mindful and sensible with them. 
+            </p>
+
+             <!-- Cheesecake image with text overlay -->
+            <div style="position: relative; text-align: center; margin: 2rem 0;">
+                <img src="cheesecakeb1.jpg" alt="Enjoying cheesecake with controlled diabetes - strict but sensible approach" style="width: 100%; height: 400px; object-fit: cover; object-position: center 30%; border-radius: 8px;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255, 255, 255, 0.9); color: rgb(139, 46, 46); padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1.4rem; font-weight: 600; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                    My Favourite Dessert Since Diagnosis...
+                </div>
+            </div>
+        </div>
+        <!-- Blog content ends here -->
+        
+        <!-- Call to action section -->
+        <div class="blog-cta">
+            <h3>Ready to Take Control of Your Blood Sugar?</h3>
+            <p>
+                If you found this information helpful and want personalised non-medical support with your diabetes management, 
+                I'm here to help through JABS Diabetes Coaching. Book a free coaching consultation to discuss your specific needs and goals.
+            </p>
+            <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2Qn16kGz0kSQ7BFJ_R7FHkbvXNXuu25Mmg7KV-XTRcxUNUJPRUM5M00zTkQ3VVhTMDU3UzI3SldHTy4u" target="_blank">Book for Free Now</a>
+        </div>
+    </div>
+
+    <!-- Consistent footer -->
+    <footer>
+        <img src="../JABS logo text.png" alt="JABS Text Logo" style="height:40px; display:block; margin:0 auto 1rem auto;">
+        &copy; 2025 JABS - Just About Blood Sugar. All rights reserved.
+    </footer>
+</body>
+</html>

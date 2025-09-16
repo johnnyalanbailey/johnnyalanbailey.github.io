@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Myths About Diabetes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+            margin: 0;
+            background: #f8f8f8;
+        }
+        header {
+            background: #2d7dd2;
+            color: #fff;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-logo {
+            height: 48px;
+        }
+        nav {
+            text-align: center;
+            position: relative;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 0 1.5rem;
+        }
+        
+        .dropdown-btn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 1.1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .dropdown-btn:hover {
+            text-decoration: underline;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 2px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .dropdown-content a {
+            color: #2d7dd2 !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            text-decoration: none;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeIn 0.2s ease-in;
+        }
+        
+        .dropdown-content {
+            transition-delay: 0.1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .container {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            color: #2d7dd2;
+            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            color: #1b4f72;
+        }
+        .blog-meta {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .blog-content p {
+            margin-bottom: 1.2rem;
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .blog-content blockquote {
+            background: #f0f7ff;
+            border-left: 4px solid #2d7dd2;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        .blog-content ul, .blog-content ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #fff;
+            color: #2d7dd2;
+        }
+        footer img {
+            height: 40px;
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+        .btn {
+            display: inline-block;
+            background: #2d7dd2;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .btn:hover {
+            background: #1b4f72;
+        }
+        .btn-back {
+            margin-bottom: 1rem;
+        }
+        .blog-cta {
+            background: #f0f7ff;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+            border: 1px solid #e0e7f0;
+        }
+        .blog-cta h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 600px) {
+            .container {
+                max-width: 98vw;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            header {
+                padding: 1rem 0.5rem;
+            }
+            nav {
+                margin-top: 0.5rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 1rem;
+                display: inline-block;
+                padding: 0.5rem 0;
+            }
+            img[alt="JABS Logo"] {
+                height: 32px !important;
+                margin-right: 0.5rem !important;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .btn {
+                font-size: 1.4rem;
+                padding: 1rem 2rem;
+                width: 90%;
+                max-width: 300px;
+                text-align: center;
+                margin: 1rem auto;
+                display: block;
+            }
+            footer img {
+                height: 28px !important;
+                margin-bottom: 0.5rem !important;
+            }
+            footer {
+                font-size: 0.9rem;
+                padding: 1rem 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Consistent header -->
+    <!-- Consistent header -->
+<header>
+    <div class="header-content">
+        <img src="../JABS logo notext.png" alt="JABS Logo" class="header-logo">
+        <nav>
+            <a href="../index.html">Home & Booking</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">More ▼</button>
+                <div class="dropdown-content">
+                    <a href="../pricing.html">Pricing & Services</a>
+                    <a href="blogindex.html">Blog</a>
+                    <a href="../about.html">About the diabetes coach</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+            <a href="../contact.html">Contact Us</a>
+        </nav>
+    </div>
+</header>    <!-- Blog content -->
+    <div class="container">
+        <a href="../index.html" class="btn btn-back">&#8592; Back to Home</a>
+        
+        <!-- REPLACE: Blog title -->
+        <h1>Myths About Diabetes</h1>
+
+        <!-- REPLACE: Blog metadata -->
+        <div class="blog-meta">
+            Published on 10/08/2025 | By Johnny Bailey
+        </div>
+        
+        <!-- REPLACE: Blog content starts here -->
+        <div class="blog-content">
+            <p>
+                Diabetics will often face a lot of misunderstanding and myths about their condition throughout their lives. For me, diagnosed as a teenager, I faced these myths throughout secondary school and even into college. The myths we face are the same as the misinformation we see about diabetes.
+            </p>
+            
+            <!-- YouTube Video -->
+            <div style="text-align: center; margin: 2rem 0;">
+                <iframe width="100%" height="400" style="max-width: 560px;" src="https://www.youtube.com/embed/Rbqbytjqt-I?si=qMuUOMy0oOb7zKuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            
+            <h2>Common Myths About Diabetes</h2>
+            <p>
+                Diabetes is often misunderstood by many, leading to a general lack of clarity and awareness about the disease. Here are some of the common myths you may have faced, or are likely to face about diabetes. 
+            </p>
+            
+            <h3>Diabetes is always caused by sugar</h3>
+            <p>
+                This is an oversimplification of a very intricate and intertwined disease. Whilst sugar is pivotal in the development of type two diabetes, it is not just the only factor. Avoiding sugar can void the risk of developing type two diabetes but realistically, this is not possible for so many in society, in a world where nearly every food on our shelves is laced with hidden ingredients like sugar.
+            </p>
+            
+            <p>
+                Other factors which can increase the risk of developing type two diabetes mellitus include obesity, job type, lack of exercise and certainly genetics or medications. Whilst type two diabetes is generally always avoidable through lifestyle tweaks, it is much easier said than done. Some factors such as diet in childhood are often out of our control, and so casting wide aspersions on those with diagnosed type two diabetes is often not helpful, certainly not as helpful as education.
+            </p>
+
+            <h4>Type One Diabetes - A Different Story</h4>
+            <p>
+                On the other hand, type one diabetes is an autoimmune disease which means we actually do not know the cause of its development. Some recent research has demonstrated that type one diabetes may be influenced by lifestyle factors such as diet in infancy or exposure to certain ingredients but this is still very much unconfirmed.
+            </p>
+            
+            <p>
+                Truly, type one diabetes is a disease we will likely never know the cause of in our lifetime. Generally though, we say that type one diabetes is a mostly environmental disease, meaning that its causes are often attributed to viruses, chemicals, medications and other toxins in our environment that can trigger autoimmunity.
+            </p>
+            
+            <p>
+                One early theory was that type one diabetes was likely caused by an infectious agent such as a virus, and this 'mimics' the insulin producing beta cells in the pancreas, causing the immune system to become self-reactive. However, the complexity of the immune system has meant that we have not yet been able to confirm this theory, and so we are left with the conclusion that type one diabetes is an autoimmune disease with no known cause.
+            </p>
+
+            <h4>Other Forms of Diabetes</h4>
+            <p>
+                Other forms of diabetes such as MODY and LADA and type 3c are also different when it comes to their causes. We know that MODY is a genetic form of diabetes, meaning that it is caused by a mutation in gene that is traceable and identifiable.
+            </p>
+            
+            <p>
+                We also know that type 3c diabetes is caused by pancreatic damage, such as from pancreatitis or pancreatic cancer, which leads to the destruction of insulin producing cells. LADA is a form of type one diabetes that develops later in life, and is also an autoimmune disease. It is often misdiagnosed as type two diabetes due to its slower onset and the age of diagnosis, but it is still an autoimmune disease that leads to the destruction of insulin producing cells in the pancreas.
+            </p>
+            
+            <h2>There are only two forms of diabetes</h2>
+            <p>
+                As touched on above, there are actually many forms of diabetes, that branch off into two forms of diabetes, mellitus and insipidus. The latter is actually nothing to do with blood sugars.
+            </p>
+            
+            <p>
+                The most common forms of diabetes are type one and type two diabetes, with type one diabetes still being quite rare, accounting for 10% of global cases. On the other hand, type two diabetes is very common, attributable to the huge influence of lifestyle factors in its development.
+            </p>
+            
+            <p>
+                There are also other forms of diabetes listed below:
+            </p>
+            <ul>
+                <li>MODY (Maturity Onset Diabetes of the Young)</li>
+                <li>LADA (Latent Autoimmune Diabetes in Adults)</li>
+                <li>Type 3c diabetes (diabetes caused by pancreatic damage)</li>
+                <li>Neonatal diabetes (diabetes diagnosed in the first six months of life)</li>
+                <li>Gestational diabetes (diabetes that develops during pregnancy)</li>
+                <li>There are more still, after these, such as induced forms of diabetes</li>
+            </ul>
+
+            <h2>Diabetes is always reversible</h2>
+            <p>
+                Some forms of diabetes, such as type two diabetes, can be successfully put into remission, meaning blood sugars normalise without medication support. However, this is quite challenging to achieve for most type two diabetics.
+            </p>
+            
+            <p>
+                In my case, my form of diabetes, type one, is not reversible despite near normalisation of blood sugars. This is not the be all and end all of diabetes though, as I can still achieve very tight blood sugar control to offset the consequences of diabetes which will eventually manifest as complications.
+            </p>
+            
+            <p>
+                Other forms of diabetes such as MODY and LADA are also not reversible, as they are genetic and autoimmune forms of diabetes respectively. Type 3c diabetes is also not reversible, as it is caused by pancreatic damage, and so the damage to the pancreas cannot be reversed.
+            </p>
+            
+            <h4>Pancreas Transplantation</h4>
+            <p>
+                One treatment, the replacement of the pancreas in severe cases can be used to return normal blood sugar control through donor pancreas transplantation, but this is not a common treatment and it actually doesn't reverse the underlying cause of diabetes, severe insulin resistance (type two) or autoimmunity (type one). This is why those who have had a pancreas transplant require lifelong immunosuppression to prevent rejection of the transplanted organ.
+            </p>
+
+            <h2>Diabetics can't eat sugar</h2>
+            <p>
+                This is the most common myth, for sure, about all forms of diabetes. The truth is often a difficult pill to swallow. Here's my hot take - diabetics can eat sugar, but this does not mean they should.
+            </p>
+            
+            <p>
+                Diabetes is a disease of blood sugar regulation and so eating sugar, or carbs, will make gaining tight control of sugars impossible. Yes, I said it, impossible. This is because sugar or carbs (they're the same thing, except for fibre) will raise blood glucose levels. Insulin we inject is nowhere near as effective as the insulin our bodies produce, and so we need to be very careful with how much sugar we eat.
+            </p>
+            
+            <h4>My Approach to Sugar</h4>
+            <p>
+                This is why I always say that diabetics can eat sugar, but they should be sensible about it. In my other blogs, I have disclosed I eat sugar, but only on those occasions where it is expected or worth it.
+            </p>
+            
+            <p>
+                I do not convince clients to avoid sugar, but I do convince them to be sensible about it, and often this stark reality can help many understand that they can eat sugar, but they should not eat it all the time. For my clients who continue to eat sugar, I help them understand the underlying mechanisms of diabetes and glucose metabolism so that they are informed about how to manage their condition after consumption of glucose/carbs.
+            </p>
+
+            <h2>Diabetics always have irregular sugars</h2>
+            <p>
+                This is a common myth that non-diabetics tend to fall for. After all, diabetes is a disease of blood sugar regulation so it makes sense that people would think that diabetics always have irregular blood sugars.
+            </p>
+            
+            <p>
+                However this is ultimately not true. Diabetics, such as myself, can have very tight blood sugar control and have near normal blood glucose levels. I have a HbA1c (a 3 month average of blood sugars) of 5.1%, a competitively non-diabetic HbA1c.
+            </p>
+            
+            <p>
+                The truth is that diabetics can have very tight blood sugar control, and this is often the goal of diabetes management, but perfect sugars are by no means the goal, as it's impossible. Perfect balance is the goal, and I can help you achieve this with my coaching services.
+            </p>
+        </div>
+        <!-- Blog content ends here -->
+        
+        <!-- Call to action section -->
+        <div class="blog-cta">
+            <h3>Ready to Take Control of Your Blood Sugar?</h3>
+            <p>
+                If you found this information helpful and want personalised support with your diabetes management, 
+                I'm here to help. Book a free consultation to discuss your specific needs and goals.
+            </p>
+            <a class="btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2Qn16kGz0kSQ7BFJ_R7FHkbvXNXuu25Mmg7KV-XTRcxUNUJPRUM5M00zTkQ3VVhTMDU3UzI3SldHTy4u" target="_blank">Book for Free Now</a>
+        </div>
+    </div>
+
+    <!-- Consistent footer -->
+    <footer>
+        <img src="../JABS logo text.png" alt="JABS Text Logo" style="height:40px; display:block; margin:0 auto 1rem auto;">
+        &copy; 2025 JABS - Just About Blood Sugar. All rights reserved.
+    </footer>
+</body>
+</html>
