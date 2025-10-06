@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>JABS - Just About Blood Sugar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YB8L2J66SZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YB8L2J66SZ');
+    </script>
+    
     <!-- Update Google Fonts for Poppins Light and Semi Bold -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
@@ -335,7 +345,7 @@
     
     <!-- Download Booklet Button -->
     <div style="text-align:center; margin-bottom: 1rem;">
-        <a href="JustAboutBloodSugar Free Booklet.pdf" download="JABS Diabetes Journey.pdf" style="display: inline-block; transition: transform 0.2s ease;">
+        <a href="JustAboutBloodSugar Free Booklet.pdf" download="JABS Diabetes Journey.pdf" style="display: inline-block; transition: transform 0.2s ease;" onclick="trackBookletDownload()">
             <img src="downloadbookletarrows.png" alt="Download Free Diabetes Guide" style="height: 250px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </a>
     </div>
@@ -383,6 +393,17 @@
 </footer>
 
 <script>
+// Google Analytics Event Tracking
+function trackBookletDownload() {
+    gtag('event', 'download', {
+        'event_category': 'engagement',
+        'event_label': 'diabetes_booklet_homepage',
+        'file_name': 'JABS Diabetes Journey.pdf',
+        'value': 1
+    });
+    console.log('Booklet download tracked!');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownBtn = document.querySelector('.dropdown-btn');
     const dropdownContent = document.querySelector('.dropdown-content');
